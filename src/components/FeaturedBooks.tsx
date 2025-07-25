@@ -68,27 +68,43 @@ const FeaturedBooks = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-foreground mb-4">
+    <section className="py-20 bg-gradient-to-b from-background via-cream/30 to-background relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-warm-brown rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-warm-brown/10 backdrop-blur-sm border border-warm-brown/20 rounded-full mb-6">
+            <span className="font-inter text-sm font-medium text-warm-brown">Handpicked Selection</span>
+          </div>
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-foreground mb-6 animate-fade-in">
             Featured Books
           </h2>
-          <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up">
             Discover our handpicked selection of bestsellers, award winners, and hidden gems 
             that are capturing readers' hearts worldwide.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredBooks.map((book) => (
-            <BookCard key={book.id} {...book} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredBooks.map((book, index) => (
+            <div 
+              key={book.id} 
+              className="animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <BookCard {...book} />
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="font-inter font-medium text-warm-brown hover:text-dark-brown border-b-2 border-warm-brown hover:border-dark-brown transition-colors duration-200">
-            View All Books →
+        <div className="text-center mt-16 animate-fade-in">
+          <button className="group font-inter font-semibold text-lg text-warm-brown hover:text-dark-brown border-b-2 border-warm-brown hover:border-dark-brown transition-all duration-300 pb-1">
+            View All Books 
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </button>
         </div>
       </div>

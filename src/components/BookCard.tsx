@@ -16,12 +16,12 @@ interface BookCardProps {
 
 const BookCard = ({ title, author, price, originalPrice, image, rating, genre }: BookCardProps) => {
   return (
-    <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border">
+    <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-background border-border/50 backdrop-blur-sm">
       <div className="relative overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-700"
         />
         {originalPrice && originalPrice > price && (
           <Badge className="absolute top-2 left-2 bg-destructive text-destructive-foreground">
@@ -31,15 +31,18 @@ const BookCard = ({ title, author, price, originalPrice, image, rating, genre }:
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-2 right-2 bg-background/80 hover:bg-background/90"
+          className="absolute top-3 right-3 bg-background/90 hover:bg-background backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 hover:scale-110"
         >
-          <Heart className="h-4 w-4" />
+          <Heart className="h-4 w-4 text-warm-brown" />
         </Button>
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>
       
-      <CardContent className="p-4">
+      <CardContent className="p-6">
         {genre && (
-          <Badge variant="secondary" className="mb-2 text-xs bg-cream text-dark-brown">
+          <Badge variant="secondary" className="mb-3 text-xs bg-gold/20 text-warm-brown border border-gold/30 hover:bg-gold/30 transition-colors duration-300">
             {genre}
           </Badge>
         )}
