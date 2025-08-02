@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Kutabkhanaa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Kutabkhanaa</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for books, authors, genres..." class="search-input">
+                    <button class="search-btn">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </div>
+                
+                <button class="cart-btn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search books..." class="mobile-search-input">
+                <button class="mobile-search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="books.html" class="mobile-link">Books</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Contact Page Content -->
+    <main class="contact-page">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="contact-hero-content">
+                    <h1 class="contact-title">Get In Touch</h1>
+                    <p class="contact-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h2 class="form-title">Send us a Message</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="order">Order Support</option>
+                                    <option value="return">Returns & Exchanges</option>
+                                    <option value="suggestion">Book Suggestion</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i data-lucide="send"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-container">
+                        <h2 class="info-title">Contact Information</h2>
+                        
+                        <div class="contact-info-card">
+                            <div class="contact-info-item">
+                                <div class="info-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Visit Our Store</h3>
+                                    <p>123 Book Street<br>Literary District<br>Reading City, RC 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="info-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Call Us</h3>
+                                    <p>+1 (555) 123-4567<br>Mon-Fri: 9AM-8PM<br>Sat-Sun: 10AM-6PM</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="info-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Email Us</h3>
+                                    <p>hello@kutabkhanaa.com<br>support@kutabkhanaa.com<br>We respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-section">
+                            <h3>Follow Us</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i data-lucide="twitter"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i data-lucide="linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title text-center">Find Us Here</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i data-lucide="map-pin"></i>
+                        <h3>Interactive Map</h3>
+                        <p>123 Book Street, Literary District</p>
+                        <p>Reading City, RC 12345</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title text-center">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are your shipping options?</h3>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer standard shipping (5-7 business days) and express shipping (2-3 business days). Free shipping is available on orders over $50.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I return or exchange a book?</h3>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we accept returns within 30 days of purchase in original condition. Exchanges are available for damaged or defective items.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you have a physical bookstore?</h3>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Visit our beautiful bookstore at 123 Book Street. We host regular events, book clubs, and author readings.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I suggest a book for your collection?</h3>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We love book suggestions! Use the contact form above or email us directly. Our curation team reviews all recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">Kutabkhanaa</span>
+                    </div>
+                    <p class="footer-description">
+                        Your gateway to literary adventures. Discover, explore, and immerse yourself in the world of books.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Non-Fiction</a></li>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Book Street, Literary District</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>hello@kutabkhanaa.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kutabkhanaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

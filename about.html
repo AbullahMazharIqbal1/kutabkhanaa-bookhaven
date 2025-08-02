@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kutabkhanaa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Kutabkhanaa</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for books, authors, genres..." class="search-input">
+                    <button class="search-btn">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="cart-btn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search books..." class="mobile-search-input">
+                <button class="mobile-search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="books.html" class="mobile-link">Books</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Page Content -->
+    <main class="about-page">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <h1 class="about-title">Our Story</h1>
+                    <p class="about-subtitle">Passionate about books, dedicated to readers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2 class="section-title">The Beginning of Kutabkhanaa</h2>
+                        <p>Founded in 2020 by a group of literary enthusiasts, Kutabkhanaa began as a small neighborhood bookstore with a simple mission: to connect readers with the books that would change their lives.</p>
+                        <p>What started as a passion project in a cozy corner shop has grown into a beloved literary destination, serving thousands of book lovers worldwide. Our name, "Kutabkhanaa," means "library" in Urdu, reflecting our deep respect for the written word and our commitment to preserving literary culture.</p>
+                        <p>Today, we continue to curate exceptional books, foster reading communities, and support authors from diverse backgrounds, believing that every story deserves to be heard and every reader deserves to find their perfect book.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="src/assets/hero-bg.jpg" alt="Our bookstore" class="story-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title text-center">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3 class="value-title">Passion for Literature</h3>
+                        <p class="value-description">We believe in the transformative power of books and are dedicated to sharing our love for literature with every customer.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="value-title">Community First</h3>
+                        <p class="value-description">Building connections between readers, authors, and the broader literary community is at the heart of everything we do.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <h3 class="value-title">Quality Curation</h3>
+                        <p class="value-description">Every book in our collection is carefully selected for its literary merit, cultural significance, or pure reading pleasure.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3 class="value-title">Diverse Voices</h3>
+                        <p class="value-description">We champion authors from all backgrounds and cultures, believing that diversity enriches the literary landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title text-center">Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="src/assets/book1.jpg" alt="Sarah Johnson" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Sarah Johnson</h3>
+                            <p class="team-role">Founder & CEO</p>
+                            <p class="team-bio">A lifelong bibliophile with 15 years in the publishing industry. Sarah's vision drives our mission to make great literature accessible to everyone.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="src/assets/book2.jpg" alt="Michael Chen" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Michael Chen</h3>
+                            <p class="team-role">Head of Curation</p>
+                            <p class="team-bio">Former literature professor turned book curator. Michael ensures every book in our collection meets our high standards for quality and significance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="src/assets/book3.jpg" alt="Emily Rodriguez" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Emily Rodriguez</h3>
+                            <p class="team-role">Community Manager</p>
+                            <p class="team-bio">Emily builds and nurtures our reading community, organizing book clubs, author events, and literary discussions that bring readers together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Books Sold</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">15,000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Author Events</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">Kutabkhanaa</span>
+                    </div>
+                    <p class="footer-description">
+                        Your gateway to literary adventures. Discover, explore, and immerse yourself in the world of books.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Non-Fiction</a></li>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Book Street, Literary District</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>hello@kutabkhanaa.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kutabkhanaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

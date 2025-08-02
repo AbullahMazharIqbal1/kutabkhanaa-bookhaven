@@ -1,27 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kutabkhanaa - Your Literary Journey Begins Here</title>
-    <meta name="description" content="Discover your next favorite book at Kutabkhanaa. Curated collection of classics, contemporary fiction, and thought-provoking literature." />
-    <meta name="author" content="Kutabkhanaa" />
-
-    <meta property="og:title" content="Kutabkhanaa - Your Literary Journey Begins Here" />
-    <meta property="og:description" content="Discover your next favorite book at Kutabkhanaa. Curated collection of classics, contemporary fiction, and thought-provoking literature." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="description" content="Discover your next favorite book at Kutabkhanaa. Curated collection of classics, contemporary fiction, and thought-provoking literature.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  </head>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Kutabkhanaa</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for books, authors, genres..." class="search-input">
+                    <button class="search-btn">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="cart-btn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search books..." class="mobile-search-input">
+                <button class="mobile-search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="books.html" class="mobile-link">Books</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Welcome to Your
+                    <span class="hero-highlight">Literary Journey</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover extraordinary stories, timeless classics, and contemporary masterpieces 
+                    in our carefully curated collection
+                </p>
+                <div class="hero-buttons">
+                    <a href="books.html" class="btn-primary">
+                        <i data-lucide="book-open"></i>
+                        Explore Collection
+                    </a>
+                    <a href="about.html" class="btn-secondary">
+                        <i data-lucide="users"></i>
+                        Our Story
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Books Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Genres</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Happy Readers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="featured-books">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Books</h2>
+                <p class="section-subtitle">Handpicked selections from our literary experts</p>
+            </div>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book1.jpg" alt="To Kill a Mockingbird" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">To Kill a Mockingbird</h3>
+                        <p class="book-author">Harper Lee</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">(4.8)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$12.99</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book2.jpg" alt="1984" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">1984</h3>
+                        <p class="book-author">George Orwell</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">(4.9)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$14.99</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book3.jpg" alt="Pride and Prejudice" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Pride and Prejudice</h3>
+                        <p class="book-author">Jane Austen</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">(4.7)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$11.99</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book4.jpg" alt="The Great Gatsby" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">The Great Gatsby</h3>
+                        <p class="book-author">F. Scott Fitzgerald</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">(4.6)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$13.99</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book5.jpg" alt="The Catcher in the Rye" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">The Catcher in the Rye</h3>
+                        <p class="book-author">J.D. Salinger</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">(4.5)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$12.49</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="src/assets/book6.jpg" alt="Lord of the Flies" class="book-image">
+                        <div class="book-overlay">
+                            <button class="btn-overlay">
+                                <i data-lucide="eye"></i>
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Lord of the Flies</h3>
+                        <p class="book-author">William Golding</p>
+                        <div class="book-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-text">(4.4)</span>
+                        </div>
+                        <div class="book-footer">
+                            <span class="book-price">$10.99</span>
+                            <button class="add-to-cart-btn">
+                                <i data-lucide="shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Kutabkhanaa?</h2>
+                <p class="section-subtitle">We're more than just a bookstore - we're your literary companions</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <h3 class="feature-title">Curated Collection</h3>
+                    <p class="feature-description">Every book is carefully selected by our team of literary experts to ensure quality and relevance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="truck"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Delivery</h3>
+                    <p class="feature-description">Get your books delivered within 24-48 hours with our express shipping service.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="feature-title">Community</h3>
+                    <p class="feature-description">Join our reading community and connect with fellow book lovers through discussions and events.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="heart"></i>
+                    </div>
+                    <h3 class="feature-title">Personal Service</h3>
+                    <p class="feature-description">Our knowledgeable staff provides personalized recommendations based on your reading preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">Kutabkhanaa</span>
+                    </div>
+                    <p class="footer-description">
+                        Your gateway to literary adventures. Discover, explore, and immerse yourself in the world of books.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Non-Fiction</a></li>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Book Street, Literary District</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>hello@kutabkhanaa.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kutabkhanaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>

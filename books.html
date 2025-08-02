@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Kutabkhanaa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Kutabkhanaa</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for books, authors, genres..." class="search-input" id="searchInput">
+                    <button class="search-btn">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="books.html" class="nav-link active">Books</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="cart-btn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search books..." class="mobile-search-input">
+                <button class="mobile-search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="books.html" class="mobile-link">Books</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Books Page Content -->
+    <main class="books-page">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Our Book Collection</h1>
+                <p class="page-subtitle">Discover your next favorite read from our curated selection</p>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label for="genre-filter">Genre:</label>
+                    <select id="genre-filter" class="filter-select">
+                        <option value="">All Genres</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="classic">Classic</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-filter">Price Range:</label>
+                    <select id="price-filter" class="filter-select">
+                        <option value="">All Prices</option>
+                        <option value="0-15">$0 - $15</option>
+                        <option value="15-25">$15 - $25</option>
+                        <option value="25+">$25+</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-filter">Sort By:</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Books Grid -->
+            <div class="books-grid" id="booksGrid">
+                <!-- Books will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">Kutabkhanaa</span>
+                    </div>
+                    <p class="footer-description">
+                        Your gateway to literary adventures. Discover, explore, and immerse yourself in the world of books.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Fiction</a></li>
+                        <li><a href="#">Non-Fiction</a></li>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>123 Book Street, Literary District</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>hello@kutabkhanaa.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="newsletter-text">Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kutabkhanaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="books.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
