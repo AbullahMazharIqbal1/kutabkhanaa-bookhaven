@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add to cart button listeners
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Add to cart button clicked');
             const bookData = {
                 id: this.dataset.bookId,
                 title: this.dataset.bookTitle,
@@ -29,14 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 image: this.dataset.bookImage
             };
             
+            console.log('Book data:', bookData);
             addToCart(bookData);
         });
     });
     
-    // Cart button click to open modal
+    // Cart button click to redirect to cart page
     if (cartBtn) {
         cartBtn.addEventListener('click', function() {
-            openCart();
+            console.log('Cart button clicked');
+            window.location.href = 'cart.html';
         });
     }
     
@@ -107,18 +110,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Cart functions
 function addToCart(bookData) {
+    console.log('Adding to cart:', bookData);
     const existingItem = cartItems.find(item => item.id === bookData.id);
     
     if (existingItem) {
         existingItem.quantity += 1;
+        console.log('Item already exists, increased quantity to:', existingItem.quantity);
     } else {
         cartItems.push({
             ...bookData,
             quantity: 1
         });
+        console.log('Added new item to cart');
     }
     
     cartCount++;
+    console.log('New cart count:', cartCount);
     updateCartDisplay();
     saveCartToStorage();
     
@@ -211,7 +218,7 @@ function renderCartItems() {
             <div class="cart-item-info">
                 <div class="cart-item-title">${item.title}</div>
                 <div class="cart-item-author">by ${item.author}</div>
-                <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
+                <div class="cart-item-price">Rs ${item.price.toLocaleString()}</div>
             </div>
             <div class="cart-item-controls">
                 <button class="quantity-btn" onclick="updateQuantity('${item.id}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>
@@ -241,9 +248,9 @@ function updateCartTotals() {
     const shipping = subtotal >= 7000 ? 0 : 200; // Free shipping over ₹7000
     const total = subtotal + shipping;
     
-    document.getElementById('cart-subtotal').textContent = `₹${subtotal.toLocaleString()}`;
-    document.getElementById('cart-shipping').textContent = shipping === 0 ? 'Free' : `₹${shipping}`;
-    document.getElementById('cart-total').textContent = `₹${total.toLocaleString()}`;
+    document.getElementById('cart-subtotal').textContent = `Rs ${subtotal.toLocaleString()}`;
+    document.getElementById('cart-shipping').textContent = shipping === 0 ? 'Free' : `Rs ${shipping}`;
+    document.getElementById('cart-total').textContent = `Rs ${total.toLocaleString()}`;
 }
 
 function saveCartToStorage() {

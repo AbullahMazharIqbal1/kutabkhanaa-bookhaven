@@ -170,12 +170,6 @@ function displayBooks(booksToShow) {
         <div class="book-card" data-book-id="${book.id}">
             <div class="book-image-container">
                 <img src="${book.image}" alt="${book.title}" class="book-image">
-                <div class="book-overlay">
-                    <button class="btn-overlay" onclick="viewBookDetails(${book.id})">
-                        <i data-lucide="eye"></i>
-                        Quick View
-                    </button>
-                </div>
             </div>
             <div class="book-info">
                 <h3 class="book-title">${book.title}</h3>
@@ -186,7 +180,7 @@ function displayBooks(booksToShow) {
                 </div>
                 <p class="book-description">${book.description}</p>
                 <div class="book-footer">
-                    <span class="book-price">₹${book.price.toLocaleString()}</span>
+                    <span class="book-price">Rs ${book.price.toLocaleString()}</span>
                     <button class="add-to-cart-btn" onclick="addToCart(${book.id})">
                         <i data-lucide="shopping-cart"></i>
                         Add to Cart
@@ -230,11 +224,11 @@ function filterBooks() {
         let matchesPrice = true;
         if (selectedPriceRange) {
             if (selectedPriceRange === '0-15') {
-                matchesPrice = book.price <= 4200; // Up to ₹4200
+                matchesPrice = book.price <= 4200; // Up to Rs 4200
             } else if (selectedPriceRange === '15-25') {
-                matchesPrice = book.price > 4200 && book.price <= 7000; // ₹4200-₹7000
+                matchesPrice = book.price > 4200 && book.price <= 7000; // Rs 4200-7000
             } else if (selectedPriceRange === '25+') {
-                matchesPrice = book.price > 7000; // Above ₹7000
+                matchesPrice = book.price > 7000; // Above Rs 7000
             }
         }
         
@@ -291,7 +285,7 @@ function addToCart(bookId) {
 // View book details (placeholder)
 function viewBookDetails(bookId) {
     const book = books.find(b => b.id === bookId);
-    alert(`Book Details:\n\nTitle: ${book.title}\nAuthor: ${book.author}\nPrice: ₹${book.price.toLocaleString()}\nRating: ${book.rating}/5\n\nDescription: ${book.description}`);
+    alert(`Book Details:\n\nTitle: ${book.title}\nAuthor: ${book.author}\nPrice: Rs ${book.price.toLocaleString()}\nRating: ${book.rating}/5\n\nDescription: ${book.description}`);
 }
 
 // Show notification
