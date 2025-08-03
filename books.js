@@ -4,7 +4,7 @@ const books = [
         id: 1,
         title: "To Kill a Mockingbird",
         author: "Harper Lee",
-        price: 12.99,
+        price: 3640,
         rating: 4.8,
         genre: "classic",
         image: "src/assets/book1.jpg",
@@ -14,7 +14,7 @@ const books = [
         id: 2,
         title: "1984",
         author: "George Orwell",
-        price: 14.99,
+        price: 4200,
         rating: 4.9,
         genre: "classic",
         image: "src/assets/book2.jpg",
@@ -24,7 +24,7 @@ const books = [
         id: 3,
         title: "Pride and Prejudice",
         author: "Jane Austen",
-        price: 11.99,
+        price: 3360,
         rating: 4.7,
         genre: "romance",
         image: "src/assets/book3.jpg",
@@ -34,7 +34,7 @@ const books = [
         id: 4,
         title: "The Great Gatsby",
         author: "F. Scott Fitzgerald",
-        price: 13.99,
+        price: 3920,
         rating: 4.6,
         genre: "classic",
         image: "src/assets/book4.jpg",
@@ -44,7 +44,7 @@ const books = [
         id: 5,
         title: "The Catcher in the Rye",
         author: "J.D. Salinger",
-        price: 12.49,
+        price: 3500,
         rating: 4.5,
         genre: "fiction",
         image: "src/assets/book5.jpg",
@@ -54,7 +54,7 @@ const books = [
         id: 6,
         title: "Lord of the Flies",
         author: "William Golding",
-        price: 10.99,
+        price: 3080,
         rating: 4.4,
         genre: "fiction",
         image: "src/assets/book6.jpg",
@@ -64,7 +64,7 @@ const books = [
         id: 7,
         title: "The Hobbit",
         author: "J.R.R. Tolkien",
-        price: 15.99,
+        price: 4480,
         rating: 4.8,
         genre: "fiction",
         image: "src/assets/book1.jpg",
@@ -74,7 +74,7 @@ const books = [
         id: 8,
         title: "Jane Eyre",
         author: "Charlotte Brontë",
-        price: 13.49,
+        price: 3780,
         rating: 4.6,
         genre: "romance",
         image: "src/assets/book2.jpg",
@@ -84,7 +84,7 @@ const books = [
         id: 9,
         title: "The Mystery of Edwin Drood",
         author: "Charles Dickens",
-        price: 16.99,
+        price: 4760,
         rating: 4.3,
         genre: "mystery",
         image: "src/assets/book3.jpg",
@@ -94,7 +94,7 @@ const books = [
         id: 10,
         title: "Sapiens",
         author: "Yuval Noah Harari",
-        price: 18.99,
+        price: 5320,
         rating: 4.7,
         genre: "non-fiction",
         image: "src/assets/book4.jpg",
@@ -104,7 +104,7 @@ const books = [
         id: 11,
         title: "The Girl with the Dragon Tattoo",
         author: "Stieg Larsson",
-        price: 14.99,
+        price: 4200,
         rating: 4.5,
         genre: "mystery",
         image: "src/assets/book5.jpg",
@@ -114,7 +114,7 @@ const books = [
         id: 12,
         title: "Educated",
         author: "Tara Westover",
-        price: 17.99,
+        price: 5040,
         rating: 4.8,
         genre: "non-fiction",
         image: "src/assets/book6.jpg",
@@ -186,7 +186,7 @@ function displayBooks(booksToShow) {
                 </div>
                 <p class="book-description">${book.description}</p>
                 <div class="book-footer">
-                    <span class="book-price">$${book.price}</span>
+                    <span class="book-price">₹${book.price.toLocaleString()}</span>
                     <button class="add-to-cart-btn" onclick="addToCart(${book.id})">
                         <i data-lucide="shopping-cart"></i>
                         Add to Cart
@@ -226,15 +226,15 @@ function filterBooks() {
         // Genre filter
         const matchesGenre = !selectedGenre || book.genre === selectedGenre;
         
-        // Price filter
+        // Price filter (PKR ranges)
         let matchesPrice = true;
         if (selectedPriceRange) {
             if (selectedPriceRange === '0-15') {
-                matchesPrice = book.price <= 15;
+                matchesPrice = book.price <= 4200; // Up to ₹4200
             } else if (selectedPriceRange === '15-25') {
-                matchesPrice = book.price > 15 && book.price <= 25;
+                matchesPrice = book.price > 4200 && book.price <= 7000; // ₹4200-₹7000
             } else if (selectedPriceRange === '25+') {
-                matchesPrice = book.price > 25;
+                matchesPrice = book.price > 7000; // Above ₹7000
             }
         }
         
@@ -291,7 +291,7 @@ function addToCart(bookId) {
 // View book details (placeholder)
 function viewBookDetails(bookId) {
     const book = books.find(b => b.id === bookId);
-    alert(`Book Details:\n\nTitle: ${book.title}\nAuthor: ${book.author}\nPrice: $${book.price}\nRating: ${book.rating}/5\n\nDescription: ${book.description}`);
+    alert(`Book Details:\n\nTitle: ${book.title}\nAuthor: ${book.author}\nPrice: ₹${book.price.toLocaleString()}\nRating: ${book.rating}/5\n\nDescription: ${book.description}`);
 }
 
 // Show notification
