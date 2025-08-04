@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kutabkhanaa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkout-page {
+            padding-top: 120px;
+            min-height: 100vh;
+            background: var(--background);
+        }
+        
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream) 100%);
+            border-radius: 16px;
+        }
+        
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+        }
+        
+        .checkout-form {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-section h3 {
+            font-family: var(--font-playfair);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--foreground);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            background: var(--background);
+            color: var(--foreground);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .payment-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .payment-option:hover {
+            border-color: var(--primary);
+            background: var(--light-cream);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--primary);
+            background: var(--light-cream);
+        }
+        
+        .payment-option input[type="radio"] {
+            margin: 0;
+            accent-color: var(--primary);
+        }
+        
+        .payment-details {
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: var(--light-cream);
+            border-radius: 12px;
+            display: none;
+        }
+        
+        .payment-details.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .order-summary {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            height: fit-content;
+            position: sticky;
+            top: 140px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            margin-top: 2rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-float);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Kutabkhanaa</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search for books, authors, genres..." class="search-input">
+                    <button class="search-btn">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="books.html" class="nav-link">Books</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search books..." class="mobile-search-input">
+                <button class="mobile-search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="books.html" class="mobile-link">Books</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Checkout Page Content -->
+    <main class="checkout-page">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h1 class="page-title">Checkout</h1>
+                <p class="page-subtitle">Complete your order details</p>
+            </div>
+            
+            <div class="checkout-content">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkout-form">
+                        <!-- Customer Information -->
+                        <div class="form-section">
+                            <h3>
+                                <i data-lucide="user"></i>
+                                Customer Information
+                            </h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="form-section">
+                            <h3>
+                                <i data-lucide="map-pin"></i>
+                                Shipping Address
+                            </h3>
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="province">Province *</label>
+                                    <select id="province" name="province" required>
+                                        <option value="">Select Province</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Sindh">Sindh</option>
+                                        <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                                        <option value="Balochistan">Balochistan</option>
+                                        <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                                        <option value="Azad Jammu and Kashmir">Azad Jammu and Kashmir</option>
+                                        <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input type="text" id="postalCode" name="postalCode">
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" name="country" value="Pakistan" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h3>
+                                <i data-lucide="credit-card"></i>
+                                Payment Method
+                            </h3>
+                            <div class="payment-options">
+                                <div class="payment-option" onclick="selectPayment('card')">
+                                    <input type="radio" id="card" name="paymentMethod" value="card">
+                                    <i data-lucide="credit-card"></i>
+                                    <div>
+                                        <strong>Credit/Debit Card</strong>
+                                        <p style="margin: 0; color: var(--muted-foreground); font-size: 0.9rem;">Pay securely with your card</p>
+                                    </div>
+                                </div>
+                                <div class="payment-option selected" onclick="selectPayment('cod')">
+                                    <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
+                                    <i data-lucide="truck"></i>
+                                    <div>
+                                        <strong>Cash on Delivery</strong>
+                                        <p style="margin: 0; color: var(--muted-foreground); font-size: 0.9rem;">Pay when you receive your order</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Payment Details -->
+                            <div id="card-details" class="payment-details">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date *</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card *</label>
+                                    <input type="text" id="cardName" name="cardName" placeholder="John Doe">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="form-section">
+                            <h3>
+                                <i data-lucide="message-circle"></i>
+                                Additional Notes
+                            </h3>
+                            <div class="form-group">
+                                <label for="notes">Order Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions for your order..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i data-lucide="check-circle"></i>
+                            Place Order
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3 style="font-family: var(--font-playfair); margin-bottom: 1.5rem;">Order Summary</h3>
+                    
+                    <div id="order-items" style="margin-bottom: 1.5rem;">
+                        <!-- Items will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span id="checkout-subtotal">Rs 0</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Shipping:</span>
+                        <span id="checkout-shipping">Rs 200</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Total:</span>
+                        <span id="checkout-total">Rs 200</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">Kutabkhanaa</span>
+                    </div>
+                    <p class="footer-description">
+                        Your gateway to literary adventures.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kutabkhanaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load cart data and populate order summary
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderSummary();
+            updateCartDisplay();
+        });
+
+        function loadOrderSummary() {
+            const cartItems = JSON.parse(localStorage.getItem('kutabkhanaa_cart') || '[]');
+            const orderItemsContainer = document.getElementById('order-items');
+            
+            if (cartItems.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
+            
+            orderItemsContainer.innerHTML = cartItems.map(item => `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+                    <div>
+                        <div style="font-weight: 500; font-size: 0.9rem;">${item.title}</div>
+                        <div style="color: var(--muted-foreground); font-size: 0.8rem;">Qty: ${item.quantity}</div>
+                    </div>
+                    <div style="font-weight: 600; color: var(--primary);">Rs ${(item.price * item.quantity).toLocaleString()}</div>
+                </div>
+            `).join('');
+            
+            updateCheckoutTotals();
+        }
+
+        function updateCheckoutTotals() {
+            const cartItems = JSON.parse(localStorage.getItem('kutabkhanaa_cart') || '[]');
+            const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 7000 ? 0 : 200;
+            const total = subtotal + shipping;
+            
+            document.getElementById('checkout-subtotal').textContent = `Rs ${subtotal.toLocaleString()}`;
+            document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'Free' : `Rs ${shipping}`;
+            document.getElementById('checkout-total').textContent = `Rs ${total.toLocaleString()}`;
+        }
+
+        function selectPayment(method) {
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            event.currentTarget.classList.add('selected');
+            
+            // Check the radio button
+            document.getElementById(method).checked = true;
+            
+            // Show/hide card details
+            const cardDetails = document.getElementById('card-details');
+            if (method === 'card') {
+                cardDetails.classList.add('active');
+            } else {
+                cardDetails.classList.remove('active');
+            }
+        }
+
+        // Form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const orderData = Object.fromEntries(formData);
+            const cartItems = JSON.parse(localStorage.getItem('kutabkhanaa_cart') || '[]');
+            
+            // Add cart items and totals to order data
+            orderData.items = cartItems;
+            orderData.subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            orderData.shipping = orderData.subtotal >= 7000 ? 0 : 200;
+            orderData.total = orderData.subtotal + orderData.shipping;
+            orderData.orderDate = new Date().toISOString();
+            orderData.orderNumber = 'KTB' + Date.now();
+            
+            // Store order data for success page
+            localStorage.setItem('kutabkhanaa_last_order', JSON.stringify(orderData));
+            
+            // Clear cart
+            localStorage.removeItem('kutabkhanaa_cart');
+            localStorage.setItem('kutabkhanaa_cart_count', '0');
+            
+            // Redirect to success page
+            window.location.href = 'success.html';
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
